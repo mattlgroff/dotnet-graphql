@@ -1,5 +1,5 @@
-# Use the official Microsoft .NET 6.0 image
-FROM mcr.microsoft.com/dotnet/sdk:6.0
+# Use the official Microsoft .NET 6.0 SDK Alpine image
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine as build
 
 # Set the working directory
 WORKDIR /app
@@ -14,13 +14,16 @@ RUN dotnet restore
 RUN dotnet build -c Release
 
 # Publish the project
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o /app/published-app
 
-# Set the working directory for the final command
-WORKDIR /app/out
+# Use the official Microsoft .NET 6.0 Runtime Alpine image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine as runtime
 
-# Expose the port the API will run on
-EXPOSE 5000
+# Set the working directory
+WORKDIR /app
 
-# Run the API
-ENTRYPOINT ["dotnet", "dotnet-graphql.dll"]
+# Copy the published app into the container
+COPY --from=build /app/published-app /app
+
+# Set the entrypoint
+ENTRYPOINT [ "dotnet", "/app/dotnet-graphql.dll" ]
