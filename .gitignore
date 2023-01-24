@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+*.nuget.config
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# IDEs and editors
+*.csproj.user
+*.idea
+*.vs
+
+# Other files
+*.DS_Store
+*.log
+*.swp
+
+# Environment-specific files
+appsettings.*.json
