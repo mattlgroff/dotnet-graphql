@@ -1,6 +1,10 @@
 # Use the official Microsoft .NET 6.0 SDK Alpine image
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine as build
 
+# Expose the ports
+EXPOSE 80
+EXPOSE 443
+
 # Set the working directory
 WORKDIR /app
 
