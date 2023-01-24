@@ -13,3 +13,6 @@ You can hit it at [https://dotnet-graphql.onrender.com/weatherforecast](https://
 ```
 // TODO: Replace WeatherForecast placeholder with a GraphQL API
 ```
+
+
+Followed the example by `bervProject` on Github: https://github.com/bervProject/GraphQLNETExample/tree/main/GraphQLNetExample
