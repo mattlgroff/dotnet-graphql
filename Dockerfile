@@ -29,5 +29,8 @@ WORKDIR /app
 # Copy the published app into the container
 COPY --from=build /app/published-app /app
 
+# Copy GraphiQL into the container
+COPY public/index.html /app/public/index.html
+
 # Set the entrypoint
 ENTRYPOINT [ "dotnet", "/app/dotnet-graphql.dll" ]
