@@ -8,11 +8,16 @@ Setup Dockerfile to build and run using Microsoft's .NET 6.0 Docker images
 
 Deployed to Render
 
-You can hit it at [https://dotnet-graphql.onrender.com/weatherforecast](https://dotnet-graphql.onrender.com/weatherforecast)
+You can hit it at [https://dotnet-graphql.onrender.com/graphql](https://dotnet-graphql.onrender.com/graphql)
 
+Example query:
 ```
-// TODO: Replace WeatherForecast placeholder with a GraphQL API
+{
+    notes {
+        id,
+        message
+    }
+}
 ```
-
 
 Followed the example by `bervProject` on Github: https://github.com/bervProject/GraphQLNETExample/tree/main/GraphQLNetExample
