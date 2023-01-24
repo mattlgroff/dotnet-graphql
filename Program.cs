@@ -57,4 +57,14 @@ app.MapControllers();
 
 app.UseGraphQL();
 
+app.UseStaticFiles();
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/", async context =>
+    {
+        await context.Response.SendFileAsync("public/index.html");
+    });
+});
+
 app.Run();
